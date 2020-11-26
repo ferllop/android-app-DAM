@@ -1,20 +1,51 @@
-package com.example.pac_desarrollo.activity2
+package com.example.pac_desarrollo.activity2.crud
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pac_desarrollo.R
+import com.example.pac_desarrollo.activity2.Item
 import java.util.*
 
 interface OnItemClickListener{
     fun onItemClicked(item: Item)
 }
 
-class ListItemsActivity : AppCompatActivity(), OnItemClickListener {
-    private lateinit var db: AdminSQLiteOpenHelper
-    private lateinit var tableName: String
+class ListItemsActivity : AbstractCRUDActionActivity(), OnItemClickListener {
+    class ItemAdapter(
+        private val dataset: List<Item>,
+        private val clickListener: OnItemClickListener
+    ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+
+        class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+            val textView: TextView = view.findViewById(R.id.lbl_item_description)
+
+            fun bind(item: Item, clickListener: OnItemClickListener){
+                textView.text =  item.toString()
+                textView.setOnClickListener {
+                    clickListener.onItemClicked(item)
+                }
+            }
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+            val adapterLayout = LayoutInflater.from(parent.context)
+                .inflate(R.layout.list_item, parent, false)
+            return ItemViewHolder(adapterLayout)
+        }
+
+        override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+            val item = dataset[position]
+            holder.bind(item, clickListener)
+        }
+
+        override fun getItemCount() = dataset.size
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +56,12 @@ class ListItemsActivity : AppCompatActivity(), OnItemClickListener {
 
         showAllData()
 
-        val backBtn = this.findViewById<Button>(R.id.list_items_btnBack)
-        backBtn.setOnClickListener { finish() }
+        setBackButtonAction(this.findViewById(R.id.list_items_btnBack))
     }
 
     override fun onRestart() {
         super.onRestart()
         showAllData()
-    }
-
-    override fun onDestroy() {
-        db.close()
-        super.onDestroy()
     }
 
     fun showAllData(){
@@ -68,5 +93,4 @@ class ListItemsActivity : AppCompatActivity(), OnItemClickListener {
             )
         )
     }
-
 }

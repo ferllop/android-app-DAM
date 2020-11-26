@@ -9,6 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.pac_desarrollo.MainActivity
 import com.example.pac_desarrollo.R
+import com.example.pac_desarrollo.activity2.crud.CreateTableActivity
+import com.example.pac_desarrollo.activity2.crud.InsertItemActivity
+import com.example.pac_desarrollo.activity2.crud.ListItemsActivity
 import com.example.pac_desarrollo.dialogs.RemoveDialogFragment
 import com.example.pac_desarrollo.dialogs.TwoOptionsDialogFragment
 

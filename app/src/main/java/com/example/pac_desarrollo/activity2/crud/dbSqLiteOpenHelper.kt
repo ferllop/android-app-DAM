@@ -1,9 +1,9 @@
-package com.example.pac_desarrollo.activity2
+package com.example.pac_desarrollo.activity2.crud
 
 import android.content.Context
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
+import com.example.pac_desarrollo.activity2.Item
 
 class AdminSQLiteOpenHelper(private val context: Context)
     : SQLiteOpenHelper(context, "mydb", null, 3) {

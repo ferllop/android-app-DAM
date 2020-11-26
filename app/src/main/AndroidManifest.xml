@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity2.EditItemActivity"></activity>
-        <activity android:name=".activity2.ListItemsActivity" />
-        <activity android:name=".activity2.InsertItemActivity" />
-        <activity android:name=".activity2.CreateTableActivity" />
+        <activity android:name=".activity2.crud.EditItemActivity"></activity>
+        <activity android:name=".activity2.crud.ListItemsActivity" />
+        <activity android:name=".activity2.crud.InsertItemActivity" />
+        <activity android:name=".activity2.crud.CreateTableActivity" />
         <activity android:name=".activity3.Activity3" />
         <activity android:name=".activity2.Activity2" />
         <activity android:name=".MainActivity">

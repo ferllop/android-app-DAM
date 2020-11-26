@@ -5,7 +5,7 @@
     android:id="@+id/create_table_btnBack"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity2.InsertItemActivity">
+    tools:context=".activity2.crud.InsertItemActivity">
 
     <EditText
         android:id="@+id/txtDescription"

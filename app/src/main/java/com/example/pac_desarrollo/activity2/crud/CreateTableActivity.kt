@@ -1,7 +1,6 @@
-package com.example.pac_desarrollo.activity2
+package com.example.pac_desarrollo.activity2.crud
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -11,29 +10,20 @@ import com.example.pac_desarrollo.R
 import com.example.pac_desarrollo.dialogs.TwoOptionsDialogFragment
 import kotlinx.android.synthetic.main.activity_create_table.*
 
-class CreateTableActivity : AppCompatActivity(), TwoOptionsDialogFragment.NoticeDialogListener {
-    private lateinit var db : AdminSQLiteOpenHelper
-    private lateinit var tableName: String
+class CreateTableActivity : AbstractCRUDActionActivity(),
+    TwoOptionsDialogFragment.NoticeDialogListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_create_table)
 
-        db = AdminSQLiteOpenHelper(this)
-
         if (intent.getBooleanExtra("removeTableInUse", false)) {
             val tableInUse = getSharedPreferences("app", Context.MODE_PRIVATE).getString("table_name", "").toString()
             deleteTable(tableInUse)
         }
 
-        val backBtn = this.findViewById<Button>(R.id.create_table_btnBack)
-        backBtn.setOnClickListener { finish() }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        db.close()
+        setBackButtonAction(this.findViewById<Button>(R.id.create_table_btnBack))
     }
 
     fun createTable(view: View){

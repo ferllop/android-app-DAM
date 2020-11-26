@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity2.CreateTableActivity">
+    tools:context=".activity2.crud.CreateTableActivity">
 
     <TextView
         android:id="@+id/lblCreateTable"
