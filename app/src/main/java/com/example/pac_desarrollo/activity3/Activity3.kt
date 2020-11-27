@@ -1,14 +1,16 @@
 package com.example.pac_desarrollo.activity3
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import com.example.pac_desarrollo.MainActivity
 import com.example.pac_desarrollo.R
 
 class Activity3 : AppCompatActivity() {
-    private lateinit var player: MusicPlayer
+    public lateinit var thread:MyThread
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,27 +18,36 @@ class Activity3 : AppCompatActivity() {
     }
 
     fun goToActivity1(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
-    fun createService(view: View) {
-        createService()
-    }
-
-    private fun createService() {
-        if (player == null) {
-            player = MusicPlayer(this, R.raw.decline)
-            player.play()
-        }
+    fun goToCreateService(view: View) {
+        thread = MyThread()
+        thread.start()
+        startActivity(Intent(this, CreateServiceActivity::class.java))
     }
 
     fun stopService(view: View) {
-        stopService()
+        stopService(Intent(this, MusicPlayerService::class.java))
     }
 
-    private fun stopService() {
-        player.stop()
-        player.onDestroy()
+    inner class MyThread:Thread() {
+        override fun run(){
+            startService()
+        }
+
+        private fun startService() {
+            startService(Intent(this@Activity3, MusicPlayerService::class.java))
+        }
+
+        private fun other() {
+            //this@Activity3.bindService(
+                //Intent(getApplicationContext(), MusicPlayerService::class.java),
+                //serviceConnection,
+                //Context.BIND_AUTO_CREATE
+            //)
+        }
+
     }
+
 }

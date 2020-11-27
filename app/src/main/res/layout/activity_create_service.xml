@@ -4,48 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity2.Activity2">
+    tools:context=".activity3.CreateServiceActivity">
 
     <Button
-        android:id="@+id/btnGoCreateTable"
+        android:id="@+id/create_service_btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:onClick="goToCreateTableActivity"
-        android:text="@string/createTable"
+        android:text="@string/play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/activity3_btnStartService"
+        android:id="@+id/create_service_btnPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:onClick="goToInsertDataActivity"
-        android:text="@string/insertData"
+        android:layout_marginTop="80dp"
+        android:text="@string/pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoCreateTable" />
+        app:layout_constraintTop_toBottomOf="@+id/create_service_btnPlay" />
 
     <Button
-        android:id="@+id/activity3_btnStopService"
+        android:id="@+id/create_service_btnSleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:onClick="goToShowDataActivity"
-        android:text="@string/getData"
+        android:layout_marginTop="80dp"
+        android:text="@string/sleep"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity3_btnStartService" />
+        app:layout_constraintTop_toBottomOf="@+id/create_service_btnPause" />
 
     <Button
-        android:id="@+id/btnGoToActivity1"
+        android:id="@+id/create_service_btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:onClick="goToActivity1"
-        android:text="@string/goToActivity1"
+        android:layout_marginBottom="40dp"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -9,8 +9,9 @@
     <string name="getData">Consultar datos</string>
     <string name="createService">Crear nuevo servicio</string>
     <string name="stopService">Detener servicio</string>
-    <string name="playMusic">Iniciar reproducción de música</string>
-    <string name="stopMusic">Detener reproducción de música</string>
+    <string name="play">Reproducir música</string>
+    <string name="pause">Pausar música</string>
+    <string name="sleep">DORMIR 15seg</string>
     <string name="freeze150sec">Bloquear durante 150000ms</string>
     <string name="insertTableName">Introduce el nombre de la tabla</string>
     <string name="ok">OK</string>
@@ -38,4 +39,5 @@
     <string name="stayAsIs">seguir con ella</string>
     <string name="editSuccesfull">Item editado con éxito</string>
     <string name="editData">Editar</string>
+    <string name="goToService">Ir al servicio</string>
 </resources>
