@@ -4,13 +4,16 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.example.pac_desarrollo.MainActivity
 import com.example.pac_desarrollo.R
+import kotlin.concurrent.thread
 
 class Activity3 : AppCompatActivity() {
-    public lateinit var thread:MyThread
+
+    private val TAG = "ilerna: Activity3"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +25,8 @@ class Activity3 : AppCompatActivity() {
     }
 
     fun goToCreateService(view: View) {
-        thread = MyThread()
-        thread.start()
+        Log.d(TAG, android.os.Process.getThreadPriority(android.os.Process.myTid()).toString());
+        startService(Intent(this, MusicPlayerService::class.java))
         startActivity(Intent(this, CreateServiceActivity::class.java))
     }
 
@@ -31,23 +34,7 @@ class Activity3 : AppCompatActivity() {
         stopService(Intent(this, MusicPlayerService::class.java))
     }
 
-    inner class MyThread:Thread() {
-        override fun run(){
-            startService()
-        }
 
-        private fun startService() {
-            startService(Intent(this@Activity3, MusicPlayerService::class.java))
-        }
-
-        private fun other() {
-            //this@Activity3.bindService(
-                //Intent(getApplicationContext(), MusicPlayerService::class.java),
-                //serviceConnection,
-                //Context.BIND_AUTO_CREATE
-            //)
-        }
-
-    }
 
 }
+
