@@ -7,7 +7,6 @@ import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.util.Log
 import android.widget.Button
 import com.example.pac_desarrollo.R
 
@@ -16,7 +15,6 @@ class CreateServiceActivity : AppCompatActivity() {
     var isBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_service)
 
@@ -37,9 +35,8 @@ class CreateServiceActivity : AppCompatActivity() {
     }
 
     private val myConnection = object: ServiceConnection {
-
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            val binder = service as MusicPlayerService.MyLocalBinder
+            val binder = service as MyLocalBinder
             musicPlayerService = binder.getService()
             isBound = true
         }
@@ -48,7 +45,5 @@ class CreateServiceActivity : AppCompatActivity() {
             isBound = false
         }
     }
-
-
 
 }
