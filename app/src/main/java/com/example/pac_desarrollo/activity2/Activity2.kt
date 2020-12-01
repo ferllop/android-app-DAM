@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.pac_desarrollo.MainActivity
+import com.example.pac_desarrollo.Activity1
 import com.example.pac_desarrollo.R
 import com.example.pac_desarrollo.activity2.crud.CreateTableActivity
 import com.example.pac_desarrollo.activity2.crud.InsertItemActivity
@@ -22,21 +22,16 @@ class Activity2 : AppCompatActivity(), TwoOptionsDialogFragment.NoticeDialogList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
 
-        showToast("Estás en la activity 2")
+        Toast.makeText(applicationContext, R.string.youAreInActivity2, Toast.LENGTH_LONG).show()
     }
 
     override fun onRestart() {
         super.onRestart()
-        showToast("Estás en la activity 2")
-    }
-
-    private fun showToast(text: String){
-        val toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG)
-        toast.show()
+        Toast.makeText(applicationContext, R.string.youAreInActivity2, Toast.LENGTH_LONG).show()
     }
 
     fun goToActivity1(view: View){
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, Activity1::class.java))
     }
 
     fun goToCreateTableActivity(view: View) {

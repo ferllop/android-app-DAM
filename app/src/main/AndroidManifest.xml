@@ -24,7 +24,7 @@
         <activity android:name=".activity2.crud.CreateTableActivity" />
         <activity android:name=".activity3.Activity3" />
         <activity android:name=".activity2.Activity2" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -40,4 +40,6 @@
     <string name="editSuccesfull">Item editado con éxito</string>
     <string name="editData">Editar</string>
     <string name="goToService">Ir al servicio</string>
+    <string name="youAreInActivity3">Estás en la Activity3</string>
+    <string name="youAreInActivity2">Estás en la Activity 2</string>
 </resources>

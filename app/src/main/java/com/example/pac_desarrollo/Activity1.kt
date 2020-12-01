@@ -7,7 +7,7 @@ import android.view.View
 import com.example.pac_desarrollo.activity2.Activity2
 import com.example.pac_desarrollo.activity3.Activity3
 
-class MainActivity : AppCompatActivity() {
+class Activity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
